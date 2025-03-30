@@ -1,0 +1,41 @@
+# Cloud deployment configuration
+spring:
+  config:
+    activate:
+      on-profile: cloud
+  docker:
+    compose:
+      enabled: false
+
+  datasource:
+    hikari:
+      maximum-pool-size: 15
+      connection-timeout: 10000
+      max-lifetime: 300000
+      idle-timeout: 60000
+
+  jpa:
+    hibernate:
+      ddl-auto: validate # Never auto-update in prod
+    properties:
+      hibernate:
+        jdbc:
+          lob:
+            non_contextual_creation: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health # Only expose health in prod
+  endpoint:
+    health:
+      show-components: always
+      probes:
+        enabled: true
+
+logging:
+  level:
+    root: INFO
+    org.springframework: WARN
+    com.example.blacklistapi: INFO

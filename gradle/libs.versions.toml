@@ -1,0 +1,59 @@
+[versions]
+spring-boot = "3.4.4"
+spring-dependency-management = "1.1.7"
+hibernate = "6.6.11.Final"
+graalvm-native = "0.10.6"
+mapstruct = "1.6.3"
+postgresql = "42.7.3"
+micrometer-datadog = "1.12.5"
+junit-bom = "5.10.2"
+assertj = "3.27.3"
+faker = "1.0.2"
+lombok = "1.18.36"
+spring-openapi= "2.8.6"
+lombok-plugin="8.13.1"
+jackson="2.18.3"
+spotless="7.0.2"
+gitHooksPlugin = "1.1.1"
+
+[libraries]
+# Spring
+spring-boot-starter-actuator = { module = "org.springframework.boot:spring-boot-starter-actuator" }
+spring-boot-starter-data-jpa = { module = "org.springframework.boot:spring-boot-starter-data-jpa" }
+spring-boot-starter-web = { module = "org.springframework.boot:spring-boot-starter-web"}
+spring-boot-starter-test = { module = "org.springframework.boot:spring-boot-starter-test" }
+spring-boot-devtools = { module = "org.springframework.boot:spring-boot-devtools" }
+spring-boot-docker-compose = { module = "org.springframework.boot:spring-boot-docker-compose" }
+spring-boot-validation = { module = "org.springframework.boot:spring-boot-starter-validation" }
+spring-openapi = { module = "org.springdoc:springdoc-openapi-starter-webmvc-ui", version.ref = "spring-openapi" }
+spring-boot-security = { module = "org.springframework.boot:spring-boot-starter-security"}
+spring-oauth2-resource-server = { module = "org.springframework.boot:spring-boot-starter-oauth2-resource-server" }
+
+
+# Mapper
+mapstruct-core = { module = "org.mapstruct:mapstruct", version.ref = "mapstruct" }
+mapstruct-processor = { module = "org.mapstruct:mapstruct-processor", version.ref = "mapstruct" }
+jackson-jsr310 = { module = "com.fasterxml.jackson.datatype:jackson-datatype-jsr310", version.ref = "jackson" }
+
+# Database
+postgresql = { module = "org.postgresql:postgresql", version.ref = "postgresql" }
+
+# Observability
+micrometer-datadog = { module = "io.micrometer:micrometer-registry-datadog", version.ref = "micrometer-datadog" }
+
+# Utilities
+lombok = { module = "org.projectlombok:lombok", version.ref = "lombok" }
+
+# Testing
+assertj-core = { module = "org.assertj:assertj-core", version.ref = "assertj" }
+faker = { module = "com.github.javafaker:javafaker", version.ref = "faker" }
+
+[plugins]
+spring-boot = { id = "org.springframework.boot", version.ref = "spring-boot" }
+spring-dependency-management = { id = "io.spring.dependency-management", version.ref = "spring-dependency-management" }
+hibernate-orm = { id = "org.hibernate.orm", version.ref = "hibernate" }
+graalvm-native = { id = "org.graalvm.buildtools.native", version.ref = "graalvm-native" }
+lombok = { id = "io.freefair.lombok", version.ref = "lombok-plugin" }
+spotless = { id = "com.diffplug.spotless", version.ref = "spotless" }
+gitHooks = { id = "eu.bambooapps.gradle.plugin.githook", version.ref = "gitHooksPlugin" }
+

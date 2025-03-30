@@ -1,0 +1,32 @@
+# Local development with Docker Postgres
+spring:
+  config:
+    activate:
+      on-profile: local
+  docker:
+    compose:
+      enabled: true
+      lifecycle-management: start-and-stop
+
+  devtools:
+    livereload:
+      enabled: true
+    restart:
+      enabled: true
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/blacklist_db
+    username: postgres
+    password: postgres
+    hikari:
+      maximum-pool-size: 5
+
+  jpa:
+    hibernate:
+      ddl-auto: update # Allow schema updates
+    show-sql: true
+
+logging:
+  level:
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type: TRACE

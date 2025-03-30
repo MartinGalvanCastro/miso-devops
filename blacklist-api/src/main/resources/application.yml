@@ -1,0 +1,42 @@
+# Common configuration for all profiles
+spring:
+  application:
+    name: blacklist-api
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/blacklist_db}
+    username: ${DB_USER:postgres}
+    password: ${DB_PASSWORD:postgres}
+    hikari:
+      pool-name: BlacklistHikariPool
+      connection-timeout: 3000
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: true
+
+server:
+  servlet:
+    context-path: /api
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
+      base-path: /management
+  endpoint:
+    health:
+      show-details: always
+    metrics:
+      access: read_only
+
+logging:
+  level:
+    org.springframework: INFO
+    com.example.blacklistapi: DEBUG
+
+security:
+  static-token: ${SECURITY_STATIC_TOKEN:supersecrettoken}

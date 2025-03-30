@@ -1,0 +1,8 @@
+rootProject.name = 'proyecto-devops'
+include 'blacklist-api'
+
+dependencyResolutionManagement {
+    repositories {
+        mavenCentral()
+    }
+}
